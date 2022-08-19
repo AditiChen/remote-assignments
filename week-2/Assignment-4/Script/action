@@ -1,0 +1,21 @@
+// change the welcome message
+const welcomeMessage = document.getElementByClassName('welcomeMessage');
+
+welcomeMessage.addEventListener('click', () => {
+    welcomeMessage.innerHTML = '<h1>Have a Good Time!</h1>';
+});
+
+// show and close menu
+// const menuIcon = document.getElementsByClassName('menuIcon');
+
+// menuIcon.addEventListener('click', () => {
+//     console.log(hello);
+// });
+
+// add content box
+const addContentBox = document.getElementsByClassName('addContentBox');
+const addContent = document.getElementsByClassName('addContent');
+
+addContentBox.addEventListener('click', () => {
+    addContent.innerHTML.style.display = 'flex'
+});
