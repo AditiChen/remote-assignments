@@ -27,13 +27,13 @@
 .listItems {
     display: none;
 }
-.listItems-ul {
+.listItems-container {
     display: flex;
     padding: 0px;
     list-style: none;
 }
 .item-style1 {
-    margin: auto 25px;
+    margin: auto 20px;
 }
 a {
     text-decoration: none;
