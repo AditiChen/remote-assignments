@@ -1,33 +1,15 @@
-function calculate(data) {
-    if (data.discount != 0) {
-        for(let i = 0; i < data.products.length; i++) {
-            console.log (`name: ${data.products[i].name},
-            price: ${data.products[i].price * data.discount}`
-            )
-        }
-    } else {
-        for(let i = 0; i < data.products.length; i++) {
-            console.log (`name: ${data.products[i].name},
-            price: ${data.products[i].price * data.discount}`
-            )
+function twoSum(nums, target) {
+    for (let i = 0; i < nums.length; i++) {
+        for ( let j = 0; j < nums.length; j++) {
+            if (nums[i] + nums[j] === target && i != j) {
+                let answer = `[${i}, ${j}]`
+                return answer;
+            }
         }
     }
 }
-
-calculate({
-    discount: 0.1, 
-    products: [
-        {
-            name: "Product 1",
-            price: 100 
-        },
-        {
-            name: "Product 2",
-            price: 700 
-        },
-        {
-            name: "Product 3",
-            price: 250 
-        }
-    ]
-}); // show the total price of all products after applying a discount
+    /*
+    For example:
+    twoSum([2, 7, 11, 15], 9); Should returns:
+    [0, 1] Because:
+    */
