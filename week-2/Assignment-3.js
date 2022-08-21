@@ -1,18 +1,15 @@
 function calculate(data) {
+    let totalPrice = 0
+    for (let i = 0; i < data.products.length; i++) {
+        totalPrice += data.products[i].price
+    }
     if (data.discount != 0) {
-        for(let i = 0; i < data.products.length; i++) {
-            console.log (`name: ${data.products[i].name},
-            price: ${data.products[i].price * data.discount}`
-            )
-        }
+        console.log (`total price: ${totalPrice * data.discount}`);
     } else {
-        for(let i = 0; i < data.products.length; i++) {
-            console.log (`name: ${data.products[i].name},
-            price: ${data.products[i].price * data.discount}`
-            )
-        }
+        console.log (`total price: ${totalPrice}`);
     }
 }
+
 
 calculate({
     discount: 0.1, 
