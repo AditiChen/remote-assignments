@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sum Page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    </head>
+    <body style="padding: 20px;">
+        <h1>Type a number</h1>
+        <h2 style="color: #39C190;">type a number below to do the math</h2>
+        <form action="/Assigment-3.js">
+            <input type="text" id="sum" name="inputNumber" value="10" style="border: 1px solid gray; line-height: 25px;">
+        </form>
+        <p id="result"></p>
+        <button id="doCalc" style="background-color: #ffd8b2; border: 1px solid gray">calculate</button>
+
+        <script>
+            const doCalc = document.getElementById('doCalc');
+            const sum = document.getElementById('sum');
+            const result = document.getElementById('result');
+            
+            doCalc.addEventListener('click', () => {
+                if (sum.value > 0) {
+                    getJSON(sum.value);
+                } else {
+                    result.textContent='error, you should type a positive integer'
+                }
+            }); 
+        
+            let getJSON = (inputNumber) => {
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', '/getData?number='+inputNumber);
+                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhr.send("number="+inputNumber);
+                xhr.onload = () => {
+                    if(xhr.status === 200) {
+                        let data = JSON.parse(xhr.responseText);
+                        result.textContent=`the sum of 1+2+....+${sum.value} = ${data}`
+                    }
+                };
+            }
+        </script>
+    </body>
+</html>
