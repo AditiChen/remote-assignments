@@ -20,9 +20,10 @@ let calculation = (num) => {
 
 app.get('/getData', (req, res) => {
     let number = req.query.number
+    console.log(number)
     if (number === 'xyz') {
         res.send('Wrong Parameter');
-    } else if (number === '5') {
+    } else if (!isNaN(number)) {
         let test = calculation(number);
         res.send(test.toString());
     } else {
