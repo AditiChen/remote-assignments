@@ -20,17 +20,18 @@ let calculation = (num) => {
 
 app.get('/getData', (req, res) => {
     let number = req.query.number
-    console.log(number)
-    if (number === 'xyz') {
-        res.send('Wrong Parameter');
-    } else if (!isNaN(number)) {
+    // console.log(number)
+    if (isInteger(number) && number > 0) {
         let test = calculation(number);
         res.send(test.toString());
+    } else if (!isInteger(number) || number <= 0) {
+        res.send('Wrong Parameter');
     } else {
         console.log(typeof number);
         res.send('Lake of Parameter');
     }
 })
+
 
 app.listen(port, () => {
     console.log(`this runs in localhost: ${port}`)
