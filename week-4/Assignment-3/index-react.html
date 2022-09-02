@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState } = React;
+
+        function Header() {
+            const [welcomeMessage, setWelcomeMessage] = useState('Welcome Message');
+            return (
+                <header className="header">
+                    <Nav />
+                    <div className="welcomeMessage" onClick={() => { setWelcomeMessage('Have a Good Time!') }}>
+                        <h1>{welcomeMessage}</h1>
+                    </div>
+                </header>
+            )
+        }
+
+        function Nav() {
+            const [openAside, setOpenAside] = useState(false);
+            return (
+                <div>
+                    <nav className="navigation">
+                        <p className="title">Website Title/Logo</p>
+                        <div className="listItems">
+                            <div className="listItems-container">
+                                <div className="item-style1">Item 1</div>
+                                <div className="item-style1">Item 2</div>
+                                <div className="item-style1">Item 3</div>
+                                <div className="item-style1">Item 4</div>
+                            </div>
+                        </div>
+                        <div className="menuIcon">
+                            <i className="material-icons" id="menu" onClick={() => { setOpenAside(true) }}>menu</i>
+                        </div>
+                    </nav>
+                    <aside className="asideItems" style={{ display: openAside ? 'block' : 'none' }}>
+                        <div className="asideContainer">
+                            <i className="material-icons" id="closeIcon" onClick={() => { setOpenAside(false) }}>close</i>
+                            <div>
+                                <div className="item-style2">Item 1</div>
+                                <div className="item-style2">Item 2</div>
+                                <div className="item-style2">Item 3</div>
+                                <div className="item-style2">Item 4</div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            )
+        }
+        function Section() {
+            const [addContent, setAddContent] = useState(false)
+            return (
+                <section>
+                    <h2 className="sectionTitle">Section Title</h2>
+                    <div className="allContent1">
+                        <div className="contentBox"> Content Box 1</div>
+                        <div className="contentBox"> Content Box 2</div>
+                        <div className="contentBox"> Content Box 3</div>
+                        <div className="contentBox"> Content Box 4</div>
+                    </div>
+                    <button className="addContentButton" onClick={() => { setAddContent(true) }}>Call to Action</button>
+                    <div className="allContent2" style={{ display: addContent ? 'flex' : '' }}>
+                        <div className="contentBox"> Content Box 5</div>
+                        <div className="contentBox"> Content Box 6</div>
+                        <div className="contentBox"> Content Box 7</div>
+                        <div className="contentBox"> Content Box 8</div>
+                    </div>
+                </section>
+            )
+        }
+
+        const MyApp = () => {
+            return (
+                <div>
+                    <Header />
+                    <Section />
+                </div>
+            );
+        }
+
+        const container = document.getElementById('root');
+        const root = ReactDOM.createRoot(container);
+        root.render(<MyApp />);
+
+    </script>
+</body>
+
+</html>

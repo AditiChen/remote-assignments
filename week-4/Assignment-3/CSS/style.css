@@ -1,0 +1,133 @@
+* {
+    margin: 0px;
+    box-sizing: border-box;
+    list-style: none;
+}
+.header {
+    width: 100%;
+    position: relative;
+}
+.navigation {
+    width: 100%;
+    height: 50px;
+    background-color: lightgray;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    box-shadow: 0px 1px 4px #787878;
+}
+.title {
+    display: inline;
+    margin: auto 20px;
+}
+.listItems {
+    display: none;
+}
+.listItems-container {
+    display: flex;
+    padding: 0px;
+    list-style: none;
+}
+.item-style1 {
+    margin: auto 20px;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+.asideItems {
+    width: 40vw;
+    padding: 10px;
+    height: 100vh;
+    display: none;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    z-index: 2;
+    background-color: white;
+    box-shadow: -1px 0px 4px #787878;
+}
+.asideContainer {
+    position: relative;
+}
+#closeIcon {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+.item-style2 {
+    padding: 15px 0px 15px 10px;
+}
+.menuIcon {
+    margin: auto 20px;
+    display: flex;
+}
+.welcomeMessage {
+    margin-top: 50px;
+    height: 180px;
+    display: flex;
+    background-color: #c6e4ff;
+    align-items: center;
+    justify-content: center;
+}
+section {
+    margin: 20px auto 0px auto;
+    max-width: 1200px;;
+    text-align: center;
+}
+.sectionTitle {
+    margin-bottom: 15px;
+}
+.allContent1, .allContent2 {
+    margin: 0px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    flex-wrap: wrap;
+}
+.allContent2 {
+    display: none;
+}
+.contentBox {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 30px;
+    padding: 10px;
+    height: 250px;
+    background-color: #7590a7;
+}
+.addContentButton {
+    width: 120px;
+    margin-bottom: 30px;
+    height: 40px;
+    background-color: #c6e4ff;
+    border: none;
+    box-shadow: 1px 1px 3px #b4b4b4;
+}
+
+/* Media Queries */
+@media screen and (min-width: 500px) {
+    .allContent1, .allContent2 {
+        flex-direction: row;
+    }
+    .contentBox {
+        width: calc(50vw - 15px - 30px);
+    }
+}
+@media screen and (min-width: 800px) {
+    .listItems {
+        display: flex;
+    }
+    .menuIcon {
+        display: none;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .contentBox {
+        width: calc(600px - 15px - 30px);
+    }
+}
